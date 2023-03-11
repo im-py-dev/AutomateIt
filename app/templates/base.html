@@ -10,9 +10,45 @@
     <title>AutomateIt - {% block title %}{% endblock %}</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!--  login & signup  -->
+    <link rel="stylesheet" href="https://colorlib.com/etc/regform/colorlib-regform-7/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://colorlib.com/etc/regform/colorlib-regform-7/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_signup.css') }}">
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/material-design-iconic-font.min.css') }}">-->
+    <style type="text/css">
+    @font-face {
+    font-weight: 400;
+    font-style:  normal;
+    font-family: 'Circular-Loom';
+
+    src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Book.woff2') format('woff2');
+    }
+
+    @font-face {
+    font-weight: 500;
+    font-style:  normal;
+    font-family: 'Circular-Loom';
+
+    src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Medium.woff2') format('woff2');
+    }
+
+    @font-face {
+    font-weight: 700;
+    font-style:  normal;
+    font-family: 'Circular-Loom';
+
+    src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Bold.woff2') format('woff2');
+    }
+
+    @font-face {
+    font-weight: 900;
+    font-style:  normal;
+    font-family: 'Circular-Loom';
+
+    src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Black.woff2') format('woff2');
+    }</style>
 
   </head>
   <body>
