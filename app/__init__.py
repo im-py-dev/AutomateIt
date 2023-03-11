@@ -3,6 +3,8 @@ from flask import Flask
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_bcrypt import Bcrypt
+
 
 # Load environment variables from .env file
 load_dotenv()
@@ -10,10 +12,9 @@ load_dotenv()
 # Read environment variables from .env file
 FLASK_DEBUG = int(os.getenv('FLASK_DEBUG'))
 
-# Initialize SQLAlchemy
+# Initialize Objects
 db = SQLAlchemy()
-
-# Initialize Login Manager
+bcrypt = Bcrypt()
 login_manager = LoginManager()
 
 
@@ -28,6 +29,9 @@ def create_app():
 
     # Initialize database
     db.init_app(app)
+
+    # Initialize Bcrypt
+    bcrypt.init_app(app)
 
     # Initialize login manager
     login_manager.init_app(app)
