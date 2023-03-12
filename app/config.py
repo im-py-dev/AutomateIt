@@ -24,6 +24,7 @@ class BaseConfig:
     RECAPTCHA_SITE_KEY = os.getenv('RECAPTCHA_SITE_KEY')
     RECAPTCHA_SECRET_KEY = os.getenv('RECAPTCHA_SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = True
+    JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY')
 
 
 class DevelopmentConfig(BaseConfig):
