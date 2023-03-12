@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
+from flask_jwt_extended import JWTManager
 
 
 # Load environment variables from .env file
@@ -16,6 +17,7 @@ FLASK_DEBUG = int(os.getenv('FLASK_DEBUG'))
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
+jwt = JWTManager()
 
 
 def create_app():
@@ -36,6 +38,9 @@ def create_app():
     # Initialize login manager
     login_manager.init_app(app)
 
+    # Initialize the JWTManager extension
+    jwt.init_app(app)
+
     # Set login view for login manager
     login_manager.login_view = 'main.login'
     login_manager.login_message_category = 'warning'
@@ -43,5 +48,8 @@ def create_app():
     # Register blueprints here
     from .views.user.base import main_bp
     app.register_blueprint(main_bp)
+
+    from .views.user.applet import applet_bp
+    app.register_blueprint(applet_bp)
 
     return app
