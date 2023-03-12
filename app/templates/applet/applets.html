@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add Applet</h2>
+  <form method="POST" action="{{ url_for('applet.create_applet') }}">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.name(class="form-control form-control-lg", placeholder="Applet Name") }}
+      {% if form.name.errors %}
+        <div class="invalid-feedback">
+          {% for error in form.name.errors %}
+            <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.description(class="form-control form-control-lg", placeholder="Applet Description") }}
+      {% if form.description.errors %}
+        <div class="invalid-feedback">
+          {% for error in form.description.errors %}
+            <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg btn-block mt-4">Create Applet</button>
+  </form>
+
+<hr>
+
+  <h1>All Applets</h1>
+  <ul>
+    {% for applet in applets %}
+      <li><a href="{{ url_for('applet.read_applet', applet_id=applet.id) }}">{{ applet.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="applet">
+    <h1>{{ applet.name }}</h1>
+    <p>{{ applet.description }}</p>
+    <h2>Triggers</h2>
+    <ul>
+      {% for trigger in applet.triggers %}
+        <li>{{ trigger.name }}</li>
+      {% endfor %}
+    </ul>
+    <h2>Actions</h2>
+    <ul>
+      {% for action in applet.actions %}
+        <li>{{ action.name }}</li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('applet.update_applet', applet_id=applet.id) }}" class="btn btn-primary">Update</a>
+    <form action="{{ url_for('applet.delete_applet', applet_id=applet.id) }}" method="POST">
+      {{ delete_form.csrf_token }}
+      {{ delete_form.submit(class="btn btn-danger") }}
+    </form>
+  </div>
+{% endblock %}
