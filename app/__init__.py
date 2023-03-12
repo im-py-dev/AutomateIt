@@ -52,4 +52,7 @@ def create_app():
     from .views.user.applet import applet_bp
     app.register_blueprint(applet_bp)
 
+    from .views.user.trigger import trigger_bp
+    app.register_blueprint(trigger_bp)
+
     return app
