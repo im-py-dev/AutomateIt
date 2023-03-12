@@ -1,9 +1,10 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash, send_file, jsonify, abort
+from flask import Blueprint, render_template, redirect, url_for, request, session, flash, send_file, jsonify, abort
 from flask_login import login_user, current_user, login_required, logout_user
 from app import login_manager, db, bcrypt
 from app.models import User
 from app.forms import LoginForm, SignupForm
 from sqlalchemy import or_
+from flask_jwt_extended import create_access_token
 
 
 main_bp = Blueprint('main', __name__)
@@ -52,6 +53,11 @@ def login():
         if user:
             # Check password hash
             if user.check_password(password):
+                # Create a JWT access token
+                access_token = create_access_token(identity=user.id)
+                print(access_token)
+                # # Set access_token in session
+                # session['access_token'] = access_token
                 # Log user in and redirect to homepage
                 login_user(user)
                 return redirect(url_for('main.index'))
