@@ -16,6 +16,8 @@ flask-migrate = "*"
 flask-script = "*"
 wtforms = "*"
 email-validator = "*"
+flask-jwt-extended = "*"
+pyjwt = "*"
 
 [dev-packages]
 
