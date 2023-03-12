@@ -1,4 +1,6 @@
 import os
+from datetime import timedelta
+
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -25,6 +27,7 @@ class BaseConfig:
     RECAPTCHA_SECRET_KEY = os.getenv('RECAPTCHA_SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY')
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(minutes=int(os.getenv('JWT_ACCESS_TOKEN_EXPIRES')))
 
 
 class DevelopmentConfig(BaseConfig):
