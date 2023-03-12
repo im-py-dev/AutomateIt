@@ -6,7 +6,7 @@ AutomateIt is a open-source project for automating tasks across multiple third-p
 
 ## Support Me ❤️
 
-If you find my PDF-Tools project helpful, you can support its continued development and maintenance in the following ways:
+If you find my project helpful, you can support its continued development and maintenance in the following ways:
 <table align="center" style="border-collapse: collapse; padding: 10px;">
   <tr>
     <td style="padding: 10px;">
